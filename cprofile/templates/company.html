@@ -1,28 +1,25 @@
-{% extends 'profiles_base.html' %}
-{% load static %}
-{% block title %}Profile | Company{% endblock title %}
-{% block active2 %}active{% endblock active2 %}
-{% block body %}
+{% extends 'profiles_base.html' %} {% load static %} {% block title %}Profile | Company{% endblock title %} {% block active2 %}active{% endblock active2 %} {% block body %}
+<h1>Details</h1>
 <br>
 <div class="info">
-  <div class="accordion" id="accordionExample">
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingOne">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
-          aria-expanded="false" aria-controls="collapseOne">
-          <h4>Basic info</h4>
+    <div class="accordion" id="accordionExample">
+        <div class="accordion-item border-light shadow-sm">
+            <h2 class="accordion-header" id="headingOne">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+          <h4>Basic Info</h4>
         </button>
-      </h2>
-      <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
-        data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <div class="form-group col-md-6">
-            <label for="company_name">Company</label>
-            <input type="text" class="form-control" id="company_name" value="">
-          </div>
-          <div class="form-group col-md-4">
-            <label for="industry">Industry</label>
-            <select id="industry" class="form-control">
+            </h2>
+            <div id="collapseOne" class="accordion-collapse collapse " aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="mb-3">
+                        <label for="company_name" class="mb-1">Company</label>
+                        <input type="text" class="form-control mb-3" id="company_name" value="">
+                    </div>
+                    <div class="row">
+
+                        <div class="col-6">
+                            <label for="industry" class="mb-1">Industry</label>
+                            <select id="industry" class="form-control mb-3 ">
               <option value="agency_sales_housing">Agency & Sales Housing</option>
               <option value="art_and_design">Art & Design</option>
               <option value="automation">Automation</option>
@@ -51,33 +48,38 @@
               <option value="telecommunications">Telecommunications</option>
               <option value="travel_hospitality">Travel/Hospitality</option>
             </select>
-          </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label for="contact_num" class="mb-1">Entity Name</label>
+                                <input type="text" class="form-control mb-3" id="lastName" value="" placeholder='EntityName'>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingTwo">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-          aria-expanded="false" aria-controls="collapseTwo">
+        <div class="accordion-item border-light shadow-sm">
+            <h2 class="accordion-header" id="headingTwo">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
           <h4>Address</h4>
         </button>
-      </h2>
-      <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
-        data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <form>
-            <div class="form-group">
-              <label for="address">Address</label>
-              <input type="text" class="form-control" id="address" value="">
-            </div>
-            <div class="form-row">
-              <div class="row">
-                <div class="col-6"><label for="city">City</label>
-                  <input type="text" class="form-control" id="city" value="">
-                </div>
-                <div class="col-6"><label for="state">State</label>
-                  <select id="state" class="form-control">
+            </h2>
+            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="address" class="mb-1">Address</label>
+                            <input type="text" class="form-control mb-3" id="address" value="">
+                        </div>
+                        <div class="form-row">
+                            <div class="row">
+                                <div class="col-6"><label for="city" class="mb-1">City</label>
+                                    <input type="text" class="form-control mb-3" id="city" value="">
+                                </div>
+                                <div class="col-6"><label for="state" class="mb-1">State</label>
+                                    <select id="state" class="form-control mb-3">
                     <option value="maharashtra"> Maharashtra </option>
                     <option value="andhra_pradesh">Andhra Pradesh</option>
                     <option value="arunachal_pradesh">Arunachal Pradesh</option>
@@ -109,121 +111,111 @@
                     <option value="uttarakhand">Uttarakhand</option>
                     <option value="west_bengal">West Bengal</option>
                   </select>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class=" col-6">
+                                    <label for="zip" class="mb-1">Zip Code</label>
+                                    <input type="number" class="form-control mb-3" id="zip" value="">
+                                </div>
+                                <div class=" col-6">
+                                    <label for="country" class="mb-1">Country</label>
+                                    <input type="text" class="form-control mb-3" id="country" value="" disabled>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-              </div>
-              <div class="row">
-                <div class="form-group col-4">
-                  <label for="zip">Zip Code</label>
-                  <input type="number" class="form-control" id="zip" value="">
-                </div>
-                <div class="form-group col-6">
-                  <label for="country">Country</label>
-                  <input type="text" class="form-control" id="country" value="" disabled>
-                </div>
-              </div>
             </div>
-          </form>
         </div>
-      </div>
-    </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingThree">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        <div class="accordion-item border-light shadow-sm">
+            <h2 class="accordion-header" id="headingThree">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
           <h4>Contact Info</h4>
         </button>
-      </h2>
-      <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
-        data-bs-parent="#accordionExample">
-        <div class="accordion-body">
-          <div class="form-row">
-            <div class="row">
-              <div class="col-6">
-                <div>
-                  <label for="contact_email">Primary Contact Email Address</label>
-                  <input type="email" class="form-control" id="contact_email" placeholder="Email" value="">
+            </h2>
+            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <label for="contact_email" class="mb-1">First Name</label>
+                                <input type="email" class="form-control mb-3" id="firstName" placeholder="FirstName" value="">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label for="contact_num" class="mb-1">Last Name</label>
+                                <input type="text" class="form-control mb-3" id="lastName" value="" placeholder='LastName'>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6">
+                            <div>
+                                <label for="contact_email" class="mb-1">Primary Contact Email Address</label>
+                                <input type="email" class="form-control " id="contact_email" placeholder="Email" value="">
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div>
+                                <label for="contact_num" class="mb-1">Phone number</label>
+                                <input type="text" class="form-control " id="contact_num" value="Phone number">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-              <div class="col-6">
-                <div>
-                  <label for="contact_num">Phone number</label>
-                  <input type="text" class="form-control" id="contact_num" value="">
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFour">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-          data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            </div>
+        </div>
+
+        <div class="accordion-item border-light shadow-sm">
+            <h2 class="accordion-header" id="headingFour">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           <h4>KYC Docs</h4>
         </button>
-      </h2>
-      <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
-        data-bs-parent="#accordionExample">
-        <div class="accordion-body" style="text-align: center;">
-          <div class="innertable">
-            <table class="table">
-              <tbody>
-                <tr>
-                  <td> GST No</td>
-                  <td><input type="text" value="" id="gst_no"></td>
-                  <td class="rowsstyle">
-                    <form method="post" class="post-form" enctype="multipart/form-data" action="">
-                      <input type="file" id="myFile" name="filename">
-                      <input type="submit" id="myFilee">
+            </h2>
+            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                <div class="accordion-body">
+                    <form>
+                        <div class="row mb-3">
+                            <label for="inputEmail3" class="col-sm-2 col-form-label ">GST No</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="gst_no">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">PAN No</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="pan_no">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">PF No</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="pf_no">
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <label for="inputPassword3" class="col-sm-2 col-form-label">ESIC No</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="esic_no">
+                            </div>
+                        </div>
+                        <div class="col-auto" style="display: flex;justify-content:flex-end">
+                            <a href='#' type="submit" class="btn btn-primary" style="text-align:right">Upload Docs</a>
+                        </div>
                     </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td> PAN No</td>
-                  <td><input type="text" id="pan_no" value=""></td>
-                  <td class="rowsstyle">
-                    <form method="post" class="post-form" enctype="multipart/form-data" action="">
-                      <input type="file" id="myFile" name="filename">
-                      <input type="submit" id="myFilee">
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td> PF No</td>
-                  <td><input type="text" id="pf_no" value=""></td>
-                  <td>
-                    <form class="post-form" enctype="multipart/form-data" method="post" action="">
-                      <input type="file" id="myFile" name="filename">
-                      <input type="submit" id="myFilee">
-                    </form>
-                  </td>
-                </tr>
-                <tr>
-                  <td> ESIC No</td>
-                  <td><input type="text" id="esic_no" value=""></td>
-                  <td class="rowsstyle">
-                    <form method="post" class="post-form" enctype="multipart/form-data" action="">
-                      <input type="file" id="myFile" name="filename">
-                      <input type="submit" id="myFilee">
-                    </form>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="for_btn" style="text-align: right;margin:10px;">
-    <button type="button" class="btn btn-primary btn-lg btn-block float-right" id="Save_context"
-      onclick="save_company_info()">Save</button>
-  </div>
 </div>
-{% endblock body %}
-
-{% block script %}
+<div class="for_btn" style="text-align: right;margin:10px;">
+    <button type="button" class="btn btn-primary btn-lg btn-block float-right" id="Save_context" onclick="save_company_info()">Save</button>
+</div>
+</div>
+{% endblock body %} {% block script %}
 <script src="{% static 'js/company.js' %}"></script>
 {% endblock script %}

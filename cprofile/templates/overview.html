@@ -1,15 +1,82 @@
-{% extends 'profiles_base.html' %}
-{% load static %}
-{% block title %}Profile | Overview{% endblock title %}
-{% block active %}active{% endblock active %}
-{% block body %}
-<br>
+{% extends 'profiles_base.html' %} {% load static %} {% block title %}Profile | Overview{% endblock title %} {% block active %}active{% endblock active %} {% block body %}
+
 <h1>Overview</h1>
 {% if user.is_authenticated %}
-  <br><h2>Hello {{ user.first_name }} {{ user.last_name }}</h2><br>
-{% endif %}
-{% endblock body %}
+<br>
+<div class="container">
+    <div class=" shadow-sm customCard">
+        <div class="customCard-header">
+            <h6><b>Feedback</b> </h6>
+        </div>
+        <div class="customCard-body" style="padding-left: 15px;padding-bottom: 7px;">
+            <p>First Time using the Jordensky App?</p>
+            <p>We will do a quick walkthrough of the platform and show you what's new !</p>
+            <a class="btn btn-primary">Feedback</a>
+            <a class="btn btn-primary">Tour</a>
+        </div>
+    </div>
+    <br>
+    <div class="addOns d-inline">
+        <h4>Explore Add-ons</h4><br>
+        <div class="row">
+            <div class="col-6">
+                <div class="h-100 shadow-sm customCard">
+                    <div class="customCard-header">
+                        <h5><b>Explore Catch up Accounting and Bookkeeping</b></h5>
+                    </div>
+                    <div class=" customCard-body">
+                        <p>Missing monthly or even yearly accounting? we will handle your overdue accounting with total accuracy, and ensure to get back on track with ease</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="h-100 shadow-sm customCard">
+                    <div class="customCard-header">
+                        <h5><b>Add another Business</b></h5>
+                    </div>
+                    <div class=" customCard-body">
+                        <p> Do you have other business which need accounting service? Bring on additional business and avail 20% off</p>
+                    </div>
+                </div>
+            </div>
+        </div> <br>
+        <div class="row">
+            <div class="col-6">
+                <div class="h-100 shadow-sm customCard">
+                    <div class="customCard-header">
+                        <h5><b>Explore CFO Services</b></h5>
+                    </div>
+                    <div class=" customCard-body">
+                        <p>Do you want to accelerate the growth? Our CFO team will be dedicated to your business and provide financial projections, scenario modelling, actual vs budget analysis and various board presentations</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="h-100 shadow-sm customCard">
+                    <div class="customCard-header">
+                        <h5><b>Explore MIS Services</b></h5>
+                    </div>
+                    <div class=" customCard-body">
+                        <p>Do you want to transform your financial data into actionable reports? Our Analyst team will handle your spreadsheet and unit economics for your business on monthly basis</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h4>Explore Free Add-ons</h4><br>
+        <div class="row">
+            <div class="col-6">
+                <div class=" shadow-sm customCard">
+                    <div class="customCard-header">
+                        <h5><b>Do you have burning questions?</b></h5>
+                    </div>
+                    <div class=" customCard-body">
+                        <p>Do you have burning questions relating to finance or your accounts, our expert team can answer every questions.</p>
+                        <a href="#">Click here to schedule a call</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-{% block script %}
-<!-- <script src="{% static 'js/pnl.js' %}"></script> -->
-{% endblock script %}
+</div> {% endif %} {% endblock body %} {% block script %} {% endblock script %}
