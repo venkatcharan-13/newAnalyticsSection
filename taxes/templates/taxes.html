@@ -1,8 +1,4 @@
-{% extends 'taxes_base.html' %}
-{% load static %}
-{% block title %}Taxes | Income Tax{% endblock title %}
-{% block active %}active{% endblock active %}
-{% block body %}
+{% extends 'taxes_base.html' %} {% load static %} {% block title %}Taxes | Income Tax{% endblock title %} {% block active %}active{% endblock active %} {% block body %}
 
 <h1>Income Tax</h1><br>
 <h2>Alerts</h2>
@@ -11,25 +7,26 @@
 </div><br>
 <h2>Status</h2>
 <div class="container">
-  <div class="row">
-    <div class="form-check col-2">
-      <input class="form-check-input" type="radio" style="background-color: green" checked>
-      <label class="form-check-label" for="flexRadioDefault1"> Completed </label>
-    </div>
-    <div class="form-check col-2">
-      <input class="form-check-input" type="radio" style="background-color: blue" checked>
-      <label class="form-check-label" for="flexRadioDefault1"> Quality Check</label>
-    </div>
-    <div class="form-check col-3">
-      <input class="form-check-input" type="radio" style="background-color: red" checked>
-      <label class="form-check-label" for="flexRadioDefault1"> Client Action needed </label>
-    </div>
-    <div class="form-check col-2">
-      <input class="form-check-input" type="radio" style="background-color: white" checked>
-      <label class="form-check-label" for="flexRadioDefault1"> Pending </label>
-    </div>
-    <div class="col-3">
-      <select class="form-select" id="fySelector" onchange="changeFinYear(this.value)" style="width:auto;">
+    <div class="row">
+        <div class="form-check col-2">
+            <i class="fa fa-check-circle" aria-hidden="true" style="color:#03fc5a"></i>
+            <!--#03fc24 , #03fcca-->
+            <label class="fa" for="flexRadioDefault1"> Done </label>
+        </div>
+        <div class="form-check col-2">
+            <i class="fa fa-hourglass-half" aria-hidden="true" style="color:#008FFB"></i>
+            <label class="fa" for="flexRadioDefault1">Pending</label>
+        </div>
+        <div class="form-check col-3">
+            <i class="fa fa-exclamation-triangle" aria-hidden="true" style="color:#fc3503"></i>
+            <label class="fa" for="flexRadioDefault1"> Client Action needed </label>
+        </div>
+        <div class="form-check col-2">
+            <i class="fa fa-minus-circle" aria-hidden="true" style="color:#c203fc"></i>
+            <label class="fa" for="flexRadioDefault1"> Not Applicable </label>
+        </div>
+        <div class="col-3" style="display:flex;justify-content: flex-end;">
+            <select class="form-select" id="fySelector" onchange="changeFinYear(this.value)" style="width:auto;">
         <option value="Choose FY">Financial Year</option>
         <option value="2018">FY 2018-19</option>
         <option value="2019">FY 2019-20</option>
@@ -37,38 +34,52 @@
         <option value="2021">FY 2021-22</option>
         <option value="2022">FY 2022-23</option>
       </select>
+        </div>
     </div>
-  </div>
-</div><br>
+    <br>
+
+</div><br><br>
+
+
+<div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
+    <button type="button" class="btn btn-primary" onclick="showPending('monthlyStatus')">Pending</button>
+    <button type="button" class="btn btn-primary" onclick="showAll('monthlyStatus')">See All</button>
+</div>
+<br><br>
 <div class="accordion" id="accordionPanelsStayOpenExample">
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
-      <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
-        Monthly TDS payment status
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse show" aria-labelledby="panelsStayOpen-headingOne">
-      <div class="accordion-body row" id="monthly_status">
-        
-      </div>
+    <div class="accordion-item border-light shadow-sm">
+        <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+            Monthly TDS payment status
+          </button>
+        </h2>
+        <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingOne">
+            <div class="accordion-body row mh-100" id="monthly_status" style="height: 150px;text-align:center;">
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="accordion-item">
-    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
-      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
-        Quarterly TDS filling status
-      </button>
-    </h2>
-    <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
-      <div class="accordion-body row" id="quarterly_status">
-       
-      </div>
-    </div>
-  </div>
 </div>
 
-{% endblock body %}
+<div class="btn-group" role="group" aria-label="Basic example" style="float: right;">
+    <button type="button" class="btn btn-primary" onclick="showPending('quaterlyStatus')">Pending</button>
+    <button type="button" class="btn btn-primary" onclick="showAll('quaterlyStatus')">See All</button>
+</div>
+<br><br>
+<div class="accordion" id="accordionPanelsStayOpenExample">
+    <div class="accordion-item border-light shadow-sm">
+        <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+        Quarterly TDS filling status
+      </button>
+        </h2>
+        <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse" aria-labelledby="panelsStayOpen-headingTwo">
+            <div class="accordion-body row" id="quarterly_status" style="height: 110px;text-align:center;">
 
-{% block script %}
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock body %} {% block script %}
 <script src="{% static 'js/inctax.js' %}"></script>
 {% endblock script %}
