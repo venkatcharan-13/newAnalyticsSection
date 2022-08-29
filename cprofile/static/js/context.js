@@ -3,14 +3,15 @@ const endpoint = 'api/context_data/'
 $.ajax({
     method: "GET",
     url: endpoint,
-    success: function (response) {
+    success: function(response) {
         console.log("Success Context");
         fill_input_area(response.about, 'about_company');
         fill_input_area(response.work_profile, 'work_profile');
         fill_input_area(response.key_info, 'key_info');
         fill_input_area(response.specific_request, 'specific_request');
+        new FroalaEditor('textarea')
     },
-    error: function (error_data) {
+    error: function(error_data) {
         console.log("Error");
         console.log(error_data);
     }
@@ -37,10 +38,10 @@ function save_context() {
             edited_specific_request: edited_specific_request
         }),
         dataType: 'json',
-    }).done(function (data) {
+    }).done(function(data) {
         console.log("Info Edited");
         document.location.reload();
-    }).fail(function (error) {
+    }).fail(function(error) {
         console.log("Edit failed");
     });
 }

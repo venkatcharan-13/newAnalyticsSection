@@ -72,6 +72,24 @@ def connections(request):
 @login_required()
 def bank_details(request):
     return render(request, 'bankdet.html')
+
+@csrf_exempt
+def save_btn_bank(request):
+    pk=''
+    changed_bank = BankDetail.objects.filter(company_id=pk).delete()
+    c=json.loads(request.body)['no_of_bank_details']
+    for i in range(c+1):
+        if i==0:
+            continue
+        else:
+            changed_bank=BankDetail.objects.create(company_id=pk)
+            changed_bank.company_id=pk
+            changed_bank.bank_name=json.loads(request.body)['bank_name_'+str(i)]
+            changed_bank.acc_num=json.loads(request.body)['acc_num_'+str(i)]
+            changed_bank.ifsc_code=json.loads(request.body)['ifsc_'+str(i)]
+            changed_bank.brancelocation=json.loads(request.body)['branch_'+str(i)]
+            changed_bank.save()
+    return JsonResponse({'Message': 'Success'})
     
 
 class CompanyInfo(APIView):
